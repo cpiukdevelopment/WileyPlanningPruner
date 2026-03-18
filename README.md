@@ -1,4 +1,4 @@
-## WileyPlanOrder Pruner
+## Wiley Planning Order Pruner
 
 #### What it does
 
