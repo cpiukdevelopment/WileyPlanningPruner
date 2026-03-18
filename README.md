@@ -25,10 +25,12 @@ aws configure
 ```
 Then if AWS CLI is installed correctly you'll be propted for credentials
 
-# Run the script
+## Run the script
+```bash
 python3 wileyPlanningPruner.py
+```
 
-#How it works
+## How it works
 
 The core loop DynamoDB forces you into
 A DynamoDB scan never returns the whole table. It returns:
@@ -42,7 +44,7 @@ What happens inside each scan page
 • 	For each qualifying group, it deletes all items belonging to that .
 • 	Once the page is fully processed, the script writes the LastEvaluated for the resumeKey
 
-#Logging
+## Logging
 
 What gets written
 - resume.key — the last scan position; this is how the script knows where to continue after a stop.
@@ -51,7 +53,7 @@ What gets written
 - delete_errors.log — any delete failures with the error message.
 - deleted_total.count — running total of deleted items.
 
-# Resuming
+## Resuming
 - each time the script finishes a DynamoDB scan page, the script updates resume.key.
 - If it stops for any reason, running it again makes it resume from that key instead of starting over.
 - Delete resume.key if you want a full fresh scan.
